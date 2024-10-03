@@ -27,9 +27,10 @@ namespace AW23_PRRPRR01_08_Konverteringsalgoritmer {
 			return size.Width * size.Height * size.Depth;
 		}
 
-		static byte ConvertToGrayscale(RGBColor color) {
+		static RGBColor ConvertToGrayscale(RGBColor color) {
 			byte average = (byte)((color.red + color.blue + color.green)/3);
-			return average;
+
+			return new RGBColor() { red = average, green = average, blue = average };
 		}
 
 		static void Main(string[] args) {
