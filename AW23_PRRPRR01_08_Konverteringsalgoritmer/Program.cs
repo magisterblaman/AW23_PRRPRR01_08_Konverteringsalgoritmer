@@ -33,8 +33,11 @@ namespace AW23_PRRPRR01_08_Konverteringsalgoritmer {
 		}
 
 		static void Main(string[] args) {
-			RGBColor inputColor = new RGBColor() { red = 243, green = 47, blue = 14 };
-			Console.WriteLine(ConvertToGrayscale(inputColor));
+			int index = 17;
+			int cols = 5;
+
+			int r = index / cols;
+			int c = index % cols; // modulo
 		}
 	}
 }
