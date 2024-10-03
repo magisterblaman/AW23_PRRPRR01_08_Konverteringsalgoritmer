@@ -28,20 +28,11 @@ namespace AW23_PRRPRR01_08_Konverteringsalgoritmer {
 		}
 
 		static void Main(string[] args) {
-			//Console.WriteLine(CalculateSpeed(5000, 10000));
+			RGBColor color = new RGBColor() { red = 34, blue = 100, green = 255 };
+			RGBColor color2 = new RGBColor() { red = 0, blue = 0, green = 0 };
 
-			int w = 43;
-			int h = 543857;
-			int d = 43784;
-
-			Console.WriteLine(CalculateVolume(w, h, d));
-
-			Size mySize = new Size();
-			mySize.Width = 43;
-			mySize.Height = 543857;
-			mySize.Depth = 43784;
-
-			Console.WriteLine(CalculateVolume2(mySize));
+			Console.WriteLine(color.red + ", " + color.green + ", " + color.blue);
+			Console.WriteLine(color2);
 		}
 	}
 }
