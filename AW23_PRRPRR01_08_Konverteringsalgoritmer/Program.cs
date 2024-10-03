@@ -27,12 +27,14 @@ namespace AW23_PRRPRR01_08_Konverteringsalgoritmer {
 			return size.Width * size.Height * size.Depth;
 		}
 
-		static void Main(string[] args) {
-			RGBColor color = new RGBColor() { red = 34, blue = 100, green = 255 };
-			RGBColor color2 = new RGBColor() { red = 0, blue = 0, green = 0 };
+		static byte ConvertToGrayscale(RGBColor color) {
+			byte average = (byte)((color.red + color.blue + color.green)/3);
+			return average;
+		}
 
-			Console.WriteLine(color.red + ", " + color.green + ", " + color.blue);
-			Console.WriteLine(color2);
+		static void Main(string[] args) {
+			RGBColor inputColor = new RGBColor() { red = 243, green = 47, blue = 14 };
+			Console.WriteLine(ConvertToGrayscale(inputColor));
 		}
 	}
 }
