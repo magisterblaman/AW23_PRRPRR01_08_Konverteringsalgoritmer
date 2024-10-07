@@ -33,12 +33,36 @@ namespace AW23_PRRPRR01_08_Konverteringsalgoritmer {
 			return new RGBColor() { red = average, green = average, blue = average };
 		}
 
-		static void Main(string[] args) {
-			int index = 17;
-			int cols = 5;
+		static CMYKColor ConvertRGBToCMYK(byte r, byte g, byte b) {
+			double r_prime = r / 255.0;
+			double g_prime = g / 255.0;
+			double b_prime = b / 255.0;
 
-			int r = index / cols;
-			int c = index % cols; // modulo
+			double k = 1 - Max(r_prime, g_prime, b_prime);
+			double c = (1 - r_prime - k) / (1 - k);
+			double m = (1 - g_prime - k) / (1 - k);
+			double y = (1 - b_prime - k) / (1 - k);
+
+			return new CMYKColor() { cyan = c, magenta = m, yellow = y, key = k };
+		}
+
+		static double Max(double value1, double value2, double value3) {
+			double max = double.MinValue;
+			if (value1 > max) {
+				max = value1;
+			}
+			if (value2 > max) {
+				max = value2;
+			}
+			if (value3 > max) {
+				max = value3;
+			}
+			return max;
+		}
+
+		static void Main(string[] args) {
+			CMYKColor color = ConvertRGBToCMYK(0, 255, 0);
+			Console.WriteLine(color.cyan + ", " + color.magenta + ", " + color.yellow + ", " + color.key);
 		}
 	}
 }
